@@ -1,3 +1,50 @@
+Express Boilerplate
+
+```sh
+// server.js
+const express = require('express');
+const birds = require('./routes/birds');
+
+const app = express();
+const port = process.env.PORT || 8000;
+
+app.get('/', (req, res) => {
+    res.send('Express Boilerplate')
+});
+
+app.use('/birds', birds);
+
+app.listen(port, () => {
+    console.log('Example app listening on port 8000!')
+});
+
+// birds.js
+var express = require('express')
+var router = express.Router();
+
+// middleware that is specific to this router
+router.use(function timeLog (req, res, next) {
+    console.log('Time: ', Date.now());
+    next();
+});
+
+// define the home page route
+router.get('/', function (req, res) {
+    res.send('Birds home page')
+});
+
+// define the about route
+router.get('/about', function (req, res) {
+    res.send('About birds')
+});
+
+module.exports = router;
+
+
+```
+
+Messenger Webhook
+
 ```sh
 const WEATHER_API_KEY = 'ed619813495f5cc9de15798c530d2358';
 const GETTY_IMAGES_API_KEY = 'bgmp9xhx2gjwkfxwkfvxv4tw';
