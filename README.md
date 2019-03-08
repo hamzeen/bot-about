@@ -3,7 +3,7 @@ Express Boilerplate
 ```sh
 // server.js
 const express = require('express');
-const birds = require('./routes/birds');
+const birds = require('./birds');
 
 const app = express();
 const port = process.env.PORT || 8000;
